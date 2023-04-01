@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const ytdl = require("ytdl-core");
 const fs = require("fs");
 
+
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 10, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
@@ -33,7 +34,7 @@ app.get("/videos/:filename", (req, res) => {
         fs.unlink(`./videos/${filename}`, (err) => {
           if (err) console.log(err);
           else {
-            console.log("\nDeleted file: example_file.txt");
+            console.log(`\nDeleted file:${filename}` );
 
             // Get the files in current directory
             // after deletion
@@ -49,7 +50,6 @@ app.get("/videos/:filename", (req, res) => {
 
 app.use(bodyParser.json());
 app.post("/ytd", function (req, res) {
-  console.log(req.body);
   const videoUrl = req.body.url;
   if (req.body.url.includes("https://www.youtube.com")) {
     const { BufferList } = require("bl");
@@ -62,10 +62,10 @@ app.post("/ytd", function (req, res) {
     ytdl(videoUrl, options).pipe(fs.createWriteStream(`./videos/${r}.mp4`));
     res.json({ url: r });
   } else {
-    console.log("Wrong url format");
     res.json({ error: "Wrong URL format" });
   }
 });
-app.listen(55581, "0.0.0.0", () => {
-  console.log("Server started on port 55581");
+
+app.listen(30212, "0.0.0.0", () => {
+  console.log("Server started on port 30212");
 });

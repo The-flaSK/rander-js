@@ -19,11 +19,16 @@
     "express": "^4.18.2",
     "express-rate-limit": "^6.7.0",
     "helmet": "^6.0.1",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.3",
     "nodemon": "^2.0.20",
+    "sequelize": "^6.29.3",
     "sharp": "^0.31.3",
     "shelljs": "^0.8.5",
+    "sqlite3": "^5.1.6",
+    "ssh2-sftp-client": "^9.0.4",
     "youtube-search": "^1.1.6",
-    "ytdl-core": "^4.11.2"
+    "ytdl-core": "^4.11.3"
   },
   "devDependencies": {
     "eslint": "^8.30.0"

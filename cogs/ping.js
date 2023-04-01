@@ -17,7 +17,7 @@ module.exports = {
       .setTitle("Ping")
       .setColor("DarkNavy")
       .setDescription(
-        `\`In ${sent.createdTimestamp - interaction.createdTimestamp}ms\``
+        `\`In ${interaction.client.ws.ping}ms\``
       );
 
     interaction.editReply({

@@ -136,13 +136,13 @@ client.on(Events.MessageCreate, async (message) => {
   } else if (message.content.startsWith("r!rename")) {
     if (message.author.id === process.env.owner) {
       fetch(
-        `https://game.techstar.live/api/client/servers/${process.env.techStarServerId}/settings/rename`,
+        `https://panel.pylexnodes.net/api/client/servers/${process.env.pylexServerId}/settings/rename`,
         {
           method: "POST",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.techStarServerApiKey}`,
+            Authorization: `Bearer ${process.env.pylexServerApiKey}`,
           },
           body: JSON.stringify({
             name: message.content.replace("r!rename", ""),
